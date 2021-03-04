@@ -114,7 +114,6 @@ GameServer.prototype.start = function() {
     hserver.listen(this.config.serverPort);
     }
     
-    
     // Start the server
     this.socketServer = new WebSocket.Server({server: hserver });
     
@@ -445,11 +444,11 @@ Press <b>W</b> to eject some mass<br/>
         <hr style="margin-bottom: 7px; "/>
         <div style="margin-bottom: 5px; line-height: 32px; margin-left: 6px; height: 32px;">
             <center>
-                <a href="privacy.txt" class="text-muted">Privacy</a>
+                <a href="privacy.html" class="text-muted">Privacy</a>
                 |
-                <a href="terms.txt" class="text-muted">Terms of Service</a>
+                <a href="terms.html" class="text-muted">Terms of Service</a>
                 |
-                <a href="changelog.txt" class="text-muted">Changelog</a>
+                <a href="changelog.html" class="text-muted">Changelog</a>
             </center>
         </div>
 

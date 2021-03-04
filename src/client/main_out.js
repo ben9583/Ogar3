@@ -380,7 +380,7 @@
             ws = null
         }
         var c = CONNECTION_URL;
-        wsUrl = "ws://" + c;
+        wsUrl = "wss://" + c;
         nodesOnScreen = [];
         playerCells = [];
         nodes = {};
@@ -390,7 +390,7 @@
         mainCanvas = teamScores = null;
         userScore = 0;
         console.log("Connecting to " + wsUrl);
-        ws = new WebSocket(wsUrl);
+        ws = new WebSocket(wsUrl, 'echo-protocol');
         ws.binaryType = "arraybuffer";
         ws.onopen = onWsOpen;
         ws.onmessage = onWsMessage;
@@ -1186,8 +1186,10 @@
         url: "checkdir.php", //Relative or absolute path to response.php file
         data: data,
         success: function (data) {
-            //alert(data["names"]);
             response = JSON.parse(data["names"]);
+        },
+        error: function (xhr, error) {
+            console.log(xhr.responseText + ": " + error);
         }
     });
 
@@ -1202,8 +1204,10 @@
             url: "checkdir.php", //Relative or absolute path to response.php file
             data: data,
             success: function (data) {
-                //alert(data["names"]);
                 response = JSON.parse(data["names"]);
+            },
+            error: function (xhr, error) {
+                console.log(xhr.responseText + ": " + error);
             }
         });
         //console.log(response);
